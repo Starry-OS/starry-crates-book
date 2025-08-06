@@ -3,6 +3,7 @@ authors = ["ZCShou"]
 language = "en"
 src = "src"
 title = "Starry Crates Book"
+license = "GPL-3.0-or-later OR Apache-2.0 OR MulanPSL-2.0"
 
 [output.html]
 git-repository-url = "https://github.com/arceos-hypervisor/axvisor-crates-docs"
