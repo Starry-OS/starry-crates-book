@@ -1,0 +1,29 @@
+[book]
+authors = ["ZCShou"]
+language = "en"
+src = "src"
+title = "Starry Crates Book"
+
+[output.html]
+git-repository-url = "https://github.com/arceos-hypervisor/axvisor-crates-docs"
+additional-css = ["theme/custom.css", "theme/pagetoc.css", "theme/language-picker.css"]
+additional-js  = ["theme/pagetoc.js", "theme/mermaid.min.js", "theme/mermaid-init.js"]
+
+[output.html.playpen]
+editable = true
+
+[output.html.search]
+enable = true
+limit-results = 30
+teaser-word-count = 30
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 1
+boost-paragraph = 1
+expand = true
+heading-split-level = 3
+
+[preprocessor.pagetoc]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"

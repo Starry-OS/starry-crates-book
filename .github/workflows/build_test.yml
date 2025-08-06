@@ -1,0 +1,38 @@
+name: Build for testing
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v2
+        with:
+          mdbook-version: 'latest'
+
+      - name: Setup Tools
+        run: cargo install mdbook-pagetoc mdbook-mermaid
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+
+      - name: Build with mdBook
+        run: mdbook build
+
+      - name: Upload Books
+        uses: actions/upload-artifact@v4
+        with:
+          name: axvisor_book
+          path: book/*
